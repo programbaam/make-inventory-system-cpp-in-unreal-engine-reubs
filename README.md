@@ -80,3 +80,6 @@ virtual void Use(class AInventorySystemCharacter* Character) PURE_VIRTUAL(UItem,
 
 cpp에서 UItem::UItem 정의
 
+
+
+## using a blueprint implement event

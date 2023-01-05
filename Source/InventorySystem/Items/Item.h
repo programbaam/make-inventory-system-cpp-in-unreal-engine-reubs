@@ -47,4 +47,7 @@ public:
 	class UInventoryComponent* OwningInventory;
 
 	virtual void Use(class AInventorySystemCharacter* Character) PURE_VIRTUAL(UItem, );
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnUse(class AInventorySystemCharacter* Character);
 };
