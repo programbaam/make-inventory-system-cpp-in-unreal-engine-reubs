@@ -8,6 +8,8 @@
 
 
 
+라이더와 언리얼엔진 5.1.0 으로 진행
+
 ## download the inventory system template project in the description
 
 유튜브 영상 더보기에 나와있는 주소를 이용하여 인벤토리 시스템 템플릿 다운
@@ -19,3 +21,9 @@
 uproject 파일 버젼을 바꾸어 준다. 비주얼 스튜디오 프로젝트 파일 생성
 
 솔루션 열어 빌드를 해준다.
+
+
+
+## toggle between equipping the vest off
+
+## add an actor component
