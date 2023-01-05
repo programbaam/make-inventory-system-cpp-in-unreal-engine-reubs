@@ -27,3 +27,56 @@ uproject 파일 버젼을 바꾸어 준다. 비주얼 스튜디오 프로젝트 
 ## toggle between equipping the vest off
 
 ## add an actor component
+
+ActorComponent를 부모로 갖는 c++ 클래스 생성 
+
+
+
+## put this in our items folder
+
+아이템 클래스는 Object 클래스로 생성. 데이터 클래스
+
+
+
+아이템 클래스에 클래스 지정자 추가
+
+```c++
+UCLASS(Abstract, BlueprintType, EditInlineNew, DefaultToInstanced)
+```
+
+클래스 지정자
+
+Abstract 추상 지정자. 
+
+BlueprintType 클래스를 블루프린트에서 변수로 사용할 수 있는 유형으로 노출
+
+EditInlineNew 이 클래스의 오브젝트는 기존 애셋에서 참조되는 것과 반대로, 언리얼 에디터 프로퍼티 창에서 생성할 수 있음을 나타냅니다. 기본 작동방식은, 기존 오브젝트로의 레퍼런스만 프로퍼티 창을 통해 할당할 수 있습니다. 이 지정자는 모든 자식 클래스에 전파되며, 자식 클래스에서는 NotEditInlineNew 지정자로 덮어쓸 수 있습니다.
+
+DefaultToInstanced 이 클래스의 모든 인스턴스는 "Instanced"로 간주. 인스턴스드 클래스는 생성 시 복제됨. 이 지정자는 서브클래스에 상속 됨.
+
+<https://docs.unrealengine.com/4.27/ko/ProgrammingAndScripting/GameplayArchitecture/Classes/Specifiers/>
+
+
+
+아이템 헤더파일에 동작글, 이름, 메시, 썸네일, 설명, 무게, 인벤토리컴포넌트 선언
+
+```c++
+virtual void Use(class AInventorySystemCharacter* Character) PURE_VIRTUAL(UItem, );
+```
+
+도 선언
+
+추상 클래스 이기에 추상 함수를 만든것이라고 생각한다.
+
+추상클래스에서 use를 호출하는 것이 아닌? 자식 클래스에서 사용하기 위해서? 그래서 순수한 가상을 갖는다.
+
+
+
+여기까지 한것을 빌드하면 에러 발생
+
+![unreal-engine-rider-uitem-constructor-build-fail](https://user-images.githubusercontent.com/96612703/210723828-1c791286-4929-4e66-b942-09c656ec1d2b.png)
+
+생성자 정의를 안해서 생긴 문제
+
+cpp에서 UItem::UItem 정의
+
