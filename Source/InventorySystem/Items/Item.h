@@ -18,6 +18,11 @@ public:
 
 	UItem();
 
+	virtual class UWorld* GetWorld() const {return World; };
+	
+	UPROPERTY(Transient)
+	class UWorld* World;
+
 	/**The text for using the item. (Equip, Eat, etc)*/
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Item")
 	FText UseActionText;
