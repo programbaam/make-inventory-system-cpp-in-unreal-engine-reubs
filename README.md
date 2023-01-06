@@ -83,3 +83,19 @@ cpp에서 UItem::UItem 정의
 
 
 ## using a blueprint implement event
+
+블루프린트에서 사용할 수 있는 함수 선언
+Item 파생 c++ 클래스 푸드아이템 생성
+Use함수 오버라이드
+인벤토리스시스템캐릭터에 체력 추가
+체력회복 변수 선언, 사용 함수 정의
+아이템 생성자의 기본값 정의
+
+## create an implementation
+
+인벤토리시스템캐릭터.h, cpp 에 아이템 사용 함수를 선언, 정의
+
+## include the heater file
+
+Item.h 파일 추가
+

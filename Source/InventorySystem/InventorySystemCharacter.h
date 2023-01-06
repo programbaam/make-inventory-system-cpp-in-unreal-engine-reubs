@@ -31,6 +31,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Health")
 	float Health;
+
+	UFUNCTION(BlueprintCallable, Category="Item")
+	void UseItem(class UItem* Item);
 	
 protected:
 
