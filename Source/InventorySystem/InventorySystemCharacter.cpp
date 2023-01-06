@@ -9,6 +9,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Items/Item.h"
+#include "Items/InventoryComponent.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AInventorySystemCharacter
@@ -43,6 +44,9 @@ AInventorySystemCharacter::AInventorySystemCharacter()
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+
+	Inventory=CreateDefaultSubobject<UInventoryComponent>("Inventory");
+	//Inventory->Capacity=20;
 
 	Health=100.f;
 	

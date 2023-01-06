@@ -99,3 +99,9 @@ Use함수 오버라이드
 
 Item.h 파일 추가
 
+
+
+## initialize our inventories
+
+캐릭터에 인벤토리컴포넌트 선언 후 정의
+
