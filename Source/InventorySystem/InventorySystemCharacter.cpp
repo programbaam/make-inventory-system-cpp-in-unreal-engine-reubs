@@ -46,7 +46,7 @@ AInventorySystemCharacter::AInventorySystemCharacter()
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
 	Inventory=CreateDefaultSubobject<UInventoryComponent>("Inventory");
-	//Inventory->Capacity=20;
+	Inventory->Capacity=20;
 
 	Health=100.f;
 	
