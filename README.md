@@ -148,3 +148,21 @@ UI에 인벤토리가 업데이트된 걸 전파하기 위하여
 아이템 제거 함수도 거의 정반대로 구현
 
 부울로 아이템이 성공적으로 추가, 제거 되었는지 확인 가능
+
+## click on the local windows debugger
+
+## start off by making a food item
+
+블루프린트로 파생이 되지 않는 문제 발생
+
+해결: 클래스 지정자에 Blueprintable을 추가하지 않아 블루프린트 생성이 가능한 베이스 클래스로 노출이 되지 않았음. 
+
+
+
+에디터에서 FoodItem, Item 클래스에서 파생된 블루프린트
+빵, 헬멧, 조끼 생성
+클래스 디테일에 Action Text, 썸네일, 이름, 설명 설정.
+이미 만들어 놓은 WBP_InventoryItem 위젯 블루프린트에서
+
+변수 Item 레퍼런스를 갖는 Item 추가. 인스턴스 편집가능, 스폰 시 노출
+

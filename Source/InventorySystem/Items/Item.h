@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(Abstract, BlueprintType, EditInlineNew, DefaultToInstanced)
+UCLASS(Abstract, BlueprintType, Blueprintable, EditInlineNew, DefaultToInstanced)
 class INVENTORYSYSTEM_API UItem : public UObject
 {
 	GENERATED_BODY()
