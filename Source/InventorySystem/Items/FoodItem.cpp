@@ -3,6 +3,7 @@
 
 #include "Items/FoodItem.h"
 
+#include "InventoryComponent.h"
 #include "InventorySystemCharacter.h"
 
 void UFoodItem::Use(AInventorySystemCharacter* Character)
@@ -10,5 +11,10 @@ void UFoodItem::Use(AInventorySystemCharacter* Character)
 	if(Character)
 	{
 		Character->Health+=HealthToHeal;
+
+		if(OwningInventory)
+		{
+			OwningInventory->RemoveItem(this);
+		}
 	}
 }
