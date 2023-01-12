@@ -166,3 +166,17 @@ UI에 인벤토리가 업데이트된 걸 전파하기 위하여
 
 변수 Item 레퍼런스를 갖는 Item 추가. 인스턴스 편집가능, 스폰 시 노출
 
+
+
+## start off by making a food item
+
+에디터에서 WBP_InventoryItem 연다.
+Item 클래스 타입의 변수 Item 추가
+블루프린트 변수 Thumbnail과 ItemName을
+Item 클래스 타입의 멤버 변수를 이용하여 
+세팅하는 것을 Construct 이벤트에 추가
+
+Use버튼 클리시 이벤트에
+소유중인 플레이어 폰을 받아와
+삼인칭캐릭터로 형변환 후 그 클래스에 정의된
+UseItem을 호출하여 로컬 변수 Item 사용하게 노드 배치
