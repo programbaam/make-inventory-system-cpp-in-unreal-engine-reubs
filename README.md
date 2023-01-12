@@ -186,18 +186,25 @@ UseItem을 호출하여 로컬 변수 Item 사용하게 노드 배치
 ## add the thumbnail
 
 WBP_InventoryItem 에디터에서
-디자이너->계층구조->UseButton->디테일->비헤이비어->ToolTipText->바인드->바인딩 생성
+디자이너->계층구조->Use Button->디테일->비헤이비어->Tool Tip Text->바인드->바인딩 생성
 함수 이름 GetTooltip으로 변경. 포멧텍스트 생성. 
 각포맷에 맞는 로컬 Item클래스의 UseAction, Item Display Name, Item Description 연결
 
 ## refresh the inventory
 
 WBP_Inventory 에디터에서
-Initialize Inventoy 커스텀 이벤트 추가, 컨스트럭트 이벤트 추가, Refresh Inventory 커스텀 이벤트 추가
+Initialize Inventory 커스텀 이벤트 추가, 컨스트럭트 이벤트 추가, Refresh Inventory 커스텀 이벤트 추가
 컨스트럭트에 소유중인 플레이어 폰을 삼인칭 캐릭터로 형변환하는 노드 추가
-삼인칭 캐릭터의 InventoryComponent를 얻고 이것을 변수로 승격시켜 블루프린트 변수로 저장
-Inventory에서 On Inventoy Updated 이벤트 바인딩 노드 배치
+삼인칭 캐릭터의 Inventory Component를 얻고 이것을 변수로 승격시켜 블루프린트 변수로 저장
+Inventory에서 On Inventory Updated 이벤트 바인딩 노드 배치
 
-바인딩을 Refresh Inventory에 해줌. 다음 실행핀에는 Initize Inventory 커스텀 이벤트를 호출.
-Initize Inventory에서 입력->새 입력 아규먼트를 생성하고 타입을 InventotyComponent 레퍼런스로하고 이름은 Inventory 함.
-Refresh Inventory 다음 실행에 Initize Inventory 호출하고 로컬 Inventory 컴포넌트 변수 할당
+바인딩을 Refresh Inventory에 해줌. 다음 실행핀에는 Initialize Inventory 커스텀 이벤트를 호출.
+Initialize Inventory에서 입력->새 입력 아규먼트를 생성하고 타입을 InventotyComponent 레퍼런스로하고 이름은 Inventory 함.
+Refresh Inventory 다음 실행에 Initialize Inventory 호출하고 로컬 Inventory 컴포넌트 변수 할당
+
+## refreshing the inventory
+
+InventoryBox 변수는 디자이너->계층구조에 배치 되어있는 WrapBox이다. 변수여부 체크되어있다.
+이 변수의 ClearChildren 노드를 Initialize Inventory 실행핀 다음에 배치
+인벤토리 컴포넌트에서 Items들의 배열을 꺼내  ForEachLoop로 그 배열 수 만큼 InventoryItem 위젯을 생성
+
