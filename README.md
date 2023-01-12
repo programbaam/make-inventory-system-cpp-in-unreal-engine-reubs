@@ -168,7 +168,7 @@ UI에 인벤토리가 업데이트된 걸 전파하기 위하여
 
 
 
-## start off by making a food item
+## set the thumbnail
 
 에디터에서 WBP_InventoryItem 연다.
 Item 클래스 타입의 변수 Item 추가
@@ -180,3 +180,24 @@ Use버튼 클리시 이벤트에
 소유중인 플레이어 폰을 받아와
 삼인칭캐릭터로 형변환 후 그 클래스에 정의된
 UseItem을 호출하여 로컬 변수 Item 사용하게 노드 배치
+
+
+
+## add the thumbnail
+
+WBP_InventoryItem 에디터에서
+디자이너->계층구조->UseButton->디테일->비헤이비어->ToolTipText->바인드->바인딩 생성
+함수 이름 GetTooltip으로 변경. 포멧텍스트 생성. 
+각포맷에 맞는 로컬 Item클래스의 UseAction, Item Display Name, Item Description 연결
+
+## refresh the inventory
+
+WBP_Inventory 에디터에서
+Initialize Inventoy 커스텀 이벤트 추가, 컨스트럭트 이벤트 추가, Refresh Inventory 커스텀 이벤트 추가
+컨스트럭트에 소유중인 플레이어 폰을 삼인칭 캐릭터로 형변환하는 노드 추가
+삼인칭 캐릭터의 InventoryComponent를 얻고 이것을 변수로 승격시켜 블루프린트 변수로 저장
+Inventory에서 On Inventoy Updated 이벤트 바인딩 노드 배치
+
+바인딩을 Refresh Inventory에 해줌. 다음 실행핀에는 Initize Inventory 커스텀 이벤트를 호출.
+Initize Inventory에서 입력->새 입력 아규먼트를 생성하고 타입을 InventotyComponent 레퍼런스로하고 이름은 Inventory 함.
+Refresh Inventory 다음 실행에 Initize Inventory 호출하고 로컬 Inventory 컴포넌트 변수 할당
