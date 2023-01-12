@@ -229,3 +229,43 @@ UI 제대로 동작하지 않는 문제 발생:
 이니셜라이즈 인벤토리에 인벤토리 컴포넌트 인자를 전달하지않아 생긴 문제
 해결: 인벤토리 컴포넌트 인자를 제대로 연결
 
+
+
+## plug the inventory into the inventory
+
+아이템 헤더 파일 
+함수 USE 뒤에  순수 가상함수 나타내는 PURE_VIRTUAL(UItem, ) 제거
+item.cpp 에서 use 정의하는 구현코드 추가
+테스트하기 위해 빵 힐량 20으로 늘림
+
+## add a couple of skeletal meshes
+
+캐릭터 블루프린트에서 몇개의 스켈레탈 메시를 추가
+헬멧과 조끼 스켈레탈 메시 추가하고 메시가 부모가 되게 하고
+위치나 회전은 전부 0으로 해줌.
+
+컨스트럭션 스크립트로 이동해
+Set Leader Pose Component(4때는 Master) 노드 생성
+타깃에 조끼와 헬멧으로 
+New Leader Bone Component는 메시로 지정
+
+BP_Clothing_Helmet 블루프린트로 이동하여
+함수에서 OnUse를 오버라이드하여 이벤트 생성
+캐릭터 핀을 당겨 삼인칭 캐릭터로 형변환 
+플립플랍을 이용해 A에는 헬멧 스켈레탈메시에셋을 스켈레탈메시컴포넌트에 셋 
+B에는 None 스켈레탈메시에셋을 스켈레탈메시컴포넌트에 셋 
+
+퓨어 버추얼 Use 함수를 안지우고 정의도 안해서 문제 생김
+순수가상함수 선언을 지우고 정의를 해서 문제 해결
+
+## drag this mesh onto the mesh
+
+조끼도 헬멧처럼 똑같이 진행
+먹으면 빵이 사라지게 하기 위해
+푸드아이템 소스코드 use 함수 정의 부분에서
+인벤토리에 소유중이면 
+현재 소유중인 인벤토리에서 먹은 아이템 제거함수 호출.
+
+## attach a little bit of blueprint logic to any item
+
+추가로 헬멧 블루프린트에서 뒤 실행핀에 폭발 이미터 세팅하는 기능 추가
