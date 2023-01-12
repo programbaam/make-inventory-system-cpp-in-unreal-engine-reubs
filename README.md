@@ -208,3 +208,24 @@ InventoryBox 변수는 디자이너->계층구조에 배치 되어있는 WrapBox
 이 변수의 ClearChildren 노드를 Initialize Inventory 실행핀 다음에 배치
 인벤토리 컴포넌트에서 Items들의 배열을 꺼내  ForEachLoop로 그 배열 수 만큼 InventoryItem 위젯을 생성
 
+## add it to the inventory box
+
+위젯 생성 다음 노드에 Add Child to Wrap Box 노드를 생성하여
+타깃은 Inventory Box로 Content는 생성한 위젯의 Return Value를 링크
+Close버튼의 클릭시 이벤트를 형성하여 부모를 없애고 마우스 커서를 안보이고
+입력모드를 게임으로 바꾸는 노드를 생성하여 링크
+
+## show the mouse cursor
+
+리디렉터가 잘못됬는지 C++ 클래스가 틱이벤트 동작하지가 않아
+C++ 인벤토리캐릭터 시스템을 부모로 같는 블루프린트를 새로 만들고 설정을 똑같이 해줌
+
+삼인칭 캐릭터 블루프린트로 이동
+탭키 누를 시 인벤토리 위젯이 형성하여 뷰포트에 뜨게 하고 마우스 커서를 보이기
+UI 입력모드로 전환, 틱 이벤트에 현재 체력을 뜨게 함
+
+UI 제대로 동작하지 않는 문제 발생:
+인벤토리 위젯에서 컨스트럭트 이벤트 끝에 
+이니셜라이즈 인벤토리에 인벤토리 컴포넌트 인자를 전달하지않아 생긴 문제
+해결: 인벤토리 컴포넌트 인자를 제대로 연결
+
